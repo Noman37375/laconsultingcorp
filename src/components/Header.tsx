@@ -34,7 +34,7 @@ export default function Header() {
         isInfoBarVisible ? 'top-8' : 'top-0'
       } z-40 ${
         isScrolled 
-          ? 'bg-white/40 backdrop-blur-[2px] shadow-md' 
+          ? 'bg-white/40 backdrop-blur-[2px] shadow-md border-b border-[#0073C6]/10' 
           : 'bg-white shadow-md'
       }`}
     >
@@ -54,8 +54,8 @@ export default function Header() {
                 to={item.href}
                 className={`${
                   item.highlight
-                    ? 'bg-blue-600 text-white px-6 py-2.5 rounded-md hover:bg-blue-700 shadow-sm font-poppins'
-                    : 'text-gray-700 hover:text-blue-600 font-medium'
+                    ? 'bg-[#0073C6] text-white px-6 py-2.5 rounded-md hover:bg-[#0073C6]/90 shadow-sm font-poppins'
+                    : 'text-[#000000] hover:text-[#0073C6] font-medium'
                 } text-sm tracking-wide transition-all duration-200 hover:scale-105`}
               >
                 {item.name}
@@ -67,7 +67,7 @@ export default function Header() {
           <div className="lg:hidden">
             <button
               type="button"
-              className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+              className="text-[#000000] hover:text-[#0073C6] transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
@@ -82,15 +82,15 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden">
-            <div className="py-3 space-y-2 border-t border-gray-100">
+            <div className="py-3 space-y-2 border-t border-[#0073C6]/10">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   className={`${
                     item.highlight
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                      ? 'bg-[#0073C6] text-white hover:bg-[#0073C6]/90'
+                      : 'text-[#000000] hover:bg-[#0073C6]/5 hover:text-[#0073C6]'
                   } block px-4 py-3 rounded-md text-base font-medium transition-colors duration-200`}
                   onClick={() => setIsMenuOpen(false)}
                 >

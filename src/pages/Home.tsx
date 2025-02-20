@@ -185,14 +185,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0073C6] to-[#00D1D1] rounded-2xl blur-xl opacity-25 group-hover:opacity-40 transition-opacity duration-300" />
               <div className="relative p-8 rounded-2xl bg-black/10 backdrop-blur-sm border border-white/10 hover:bg-white/[0.15] transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#0073C6] to-[#00D1D1] rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Globe className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-5xl font-bold text-white mb-3 font-poppins">500+</div>
+                <div className="text-5xl font-bold text-white mb-3 font-poppins">400+</div>
                 <div className="text-gray-300 font-medium tracking-wide text-lg">Global Clients</div>
               </div>
             </div>
@@ -216,17 +216,6 @@ export default function Home() {
                 </div>
                 <div className="text-5xl font-bold text-white mb-3 font-poppins">25+</div>
                 <div className="text-gray-300 font-medium tracking-wide text-lg">Years Experience</div>
-              </div>
-            </div>
-
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0073C6] to-[#00D1D1] rounded-2xl blur-xl opacity-25 group-hover:opacity-40 transition-opacity duration-300" />
-              <div className="relative p-8 rounded-2xl bg-black/10 backdrop-blur-sm border border-white/10 hover:bg-white/[0.15] transition-all duration-300 transform hover:-translate-y-1">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-5xl font-bold text-white mb-3 font-poppins">100+</div>
-                <div className="text-gray-300 font-medium tracking-wide text-lg">Expert Team Members</div>
               </div>
             </div>
           </div>
@@ -290,22 +279,22 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-[#000000] via-[#0073C6] to-[#00D1D1]">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/[0.05]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
         
         {/* Animated Circles */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -left-10 -top-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-700" />
+          <div className="absolute -left-10 -top-10 w-72 h-72 bg-[#0073C6]/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-[#00D1D1]/20 rounded-full blur-3xl animate-pulse delay-700" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 font-poppins leading-tight">
               Ready to Transform Your Business
-              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#00D1D1] to-white">
                 with Data-Driven Solutions?
               </span>
             </h2>
@@ -324,7 +313,7 @@ export default function Home() {
               
               <Link
                 to="/contact"
-                className="group px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center space-x-3 w-full sm:w-auto min-w-[200px]"
+                className="group px-8 py-4 rounded-xl bg-gradient-to-r from-[#0073C6] to-[#00D1D1] hover:from-[#0073C6]/90 hover:to-[#00D1D1]/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center space-x-3 w-full sm:w-auto min-w-[200px]"
               >
                 <span className="text-white font-medium tracking-wide">Contact Us</span>
                 <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-1.5 transition-transform" />
