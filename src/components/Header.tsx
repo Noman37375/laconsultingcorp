@@ -1,10 +1,22 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import logo from '../assets/images/logo.webp';
+import { useUI } from '../context/UIContext';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { isInfoBarVisible } = useUI();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -17,27 +29,34 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white shadow-sm fixed w-full top-0 z-50">
+    <header 
+      className={`fixed w-full transition-all duration-300 font-inter ${
+        isInfoBarVisible ? 'top-8' : 'top-0'
+      } z-40 ${
+        isScrolled 
+          ? 'bg-white/40 backdrop-blur-[2px] shadow-md' 
+          : 'bg-white shadow-md'
+      }`}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="w-full py-6 flex items-center justify-between border-b border-gray-200 lg:border-none">
+        <div className="w-full py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
-              <Brain className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-900">LA Consulting</span>
+            <Link to="/" className="flex items-center space-x-2 hover:opacity-90 transition-opacity">
+              <img src={logo} alt="LA Consulting Logo" className="h-14 w-auto" />
             </Link>
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-6">
+          <div className="hidden lg:flex lg:items-center lg:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`${
                   item.highlight
-                    ? 'bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700'
-                    : 'text-gray-700 hover:text-blue-600'
-                } text-sm font-medium transition-colors duration-200`}
+                    ? 'bg-blue-600 text-white px-6 py-2.5 rounded-md hover:bg-blue-700 shadow-sm font-poppins'
+                    : 'text-gray-700 hover:text-blue-600 font-medium'
+                } text-sm tracking-wide transition-all duration-200 hover:scale-105`}
               >
                 {item.name}
               </Link>
@@ -48,13 +67,13 @@ export default function Header() {
           <div className="lg:hidden">
             <button
               type="button"
-              className="text-gray-600 hover:text-gray-900"
+              className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-7 w-7" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-7 w-7" />
               )}
             </button>
           </div>
@@ -63,16 +82,16 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden">
-            <div className="pt-2 pb-3 space-y-1">
+            <div className="py-3 space-y-2 border-t border-gray-100">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   className={`${
                     item.highlight
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 hover:bg-gray-50'
-                  } block px-3 py-2 rounded-md text-base font-medium`}
+                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                  } block px-4 py-3 rounded-md text-base font-medium transition-colors duration-200`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
