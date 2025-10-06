@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Team from './pages/Team';
 import About from './pages/About';
@@ -17,6 +18,7 @@ export default function App() {
       <Router>
         <div className="min-h-screen flex flex-col">
           <InfoBar />
+          <ScrollToTop />
           <Header />
           <main className="flex-1 pt-24">
             <Routes>

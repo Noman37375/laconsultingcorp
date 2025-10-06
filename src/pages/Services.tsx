@@ -152,31 +152,52 @@ export default function Services() {
 
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <div 
-        className="relative h-[400px] flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80")'
-        }}
-      >
-        <div className="text-center text-white z-10 px-4">
-          <h1 className="text-5xl font-bold mb-6">Our Services</h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Empowering your business with cutting-edge technology and data-driven solutions
-          </p>
-          <div className="inline-flex items-center justify-center space-x-2 text-sm bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
-            <Link to="/" className="hover:text-blue-300 transition-colors">HOME</Link>
-            <span>/</span>
-            <span className="text-blue-300">SERVICES</span>
+      {/* Hero Section - updated to match About styling */}
+      <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-fixed transform scale-105"
+          style={{
+            backgroundImage: 'url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80")'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0073C6]/30 to-[#00D1D1]/30 mix-blend-multiply" />
+
+        {/* Animated Circles */}
+        <div className="absolute inset-0">
+          <div className="absolute -left-20 top-20 w-72 h-72 bg-[#0073C6]/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -right-20 bottom-20 w-72 h-72 bg-[#00D1D1]/20 rounded-full blur-3xl animate-pulse delay-500" />
+        </div>
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-grid-white/[0.03]" />
+
+        <div className="relative text-center text-white z-10 px-4 max-w-5xl mx-auto">
+          <div className="space-y-8">
+            <div className="inline-flex items-center justify-center space-x-2 text-sm bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm border border-white/10">
+              <Link to="/" className="hover:text-[#00D1D1] transition-colors">HOME</Link>
+              <span className="text-white/40">/</span>
+              <span className="text-[#00D1D1]">SERVICES</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold font-poppins">
+              Our Services
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-light">
+              Empowering your business with cutting-edge technology and data-driven solutions
+            </p>
           </div>
         </div>
+
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </div>
 
       {/* Main Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-poppins">
               Comprehensive Solutions for Your Business
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -186,17 +207,18 @@ export default function Services() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {mainServices.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div key={index} className="relative group bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0073C6] to-[#00D1D1] opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300" />
                 <div className="p-8">
                   <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
-                    <service.icon className="h-8 w-8 text-blue-600" />
+                    <service.icon className="h-8 w-8 text-[#0073C6]" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
                   <p className="text-gray-600 mb-6">{service.description}</p>
                   <div className="space-y-3">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
-                        <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                        <CheckCircle2 className="h-5 w-5 text-[#00D1D1]" />
                         <span className="text-gray-700">{feature}</span>
                       </div>
                     ))}
@@ -205,7 +227,7 @@ export default function Services() {
                 <div className="px-8 pb-6">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+                    className="inline-flex items-center text-[#0073C6] hover:text-[#005b9e] font-medium"
                   >
                     Learn more <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -217,10 +239,10 @@ export default function Services() {
       </section>
 
       {/* Development Services Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-poppins">
               Development & Integration Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -230,16 +252,16 @@ export default function Services() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {developmentServices.map((service, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 hover:bg-gray-100 transition-colors duration-300">
-                <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
-                  <service.icon className="h-8 w-8 text-blue-600" />
+              <div key={index} className="group relative bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300">
+                <div className="w-14 h-14 bg-gradient-to-r from-[#0073C6] to-[#00D1D1] rounded-lg flex items-center justify-center mb-6">
+                  <service.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <div className="space-y-3">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
-                      <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                      <CheckCircle2 className="h-5 w-5 text-[#0073C6]" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
@@ -251,10 +273,10 @@ export default function Services() {
       </section>
 
       {/* Technical Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-poppins">
               Technical Excellence
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -265,8 +287,8 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {technicalFeatures.map((feature, index) => (
               <div key={index} className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="h-6 w-6 text-blue-600" />
+                <div className="w-12 h-12 bg-gradient-to-r from-[#0073C6] to-[#00D1D1] rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <feature.icon className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
@@ -277,10 +299,10 @@ export default function Services() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-poppins">
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -290,17 +312,18 @@ export default function Services() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="h-48 overflow-hidden">
+              <div key={index} className="relative bg-white rounded-2xl shadow-lg overflow-hidden group">
+                <div className="h-48 overflow-hidden relative">
                   <img 
                     src={study.image} 
                     alt={study.title}
-                    className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0073C6]/10 to-[#00D1D1]/10 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{study.title}</h3>
-                  <p className="text-blue-600 font-medium mb-4">{study.client}</p>
+                  <p className="text-[#0073C6] font-medium mb-4">{study.client}</p>
                   <div className="space-y-2">
                     {study.results.map((result, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
@@ -317,10 +340,10 @@ export default function Services() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-poppins">
               Client Testimonials
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -331,7 +354,7 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white rounded-xl p-8 shadow-lg">
-                <Quote className="h-8 w-8 text-blue-600 mb-6" />
+                <Quote className="h-8 w-8 text-[#0073C6] mb-6" />
                 <p className="text-gray-700 text-lg mb-6 italic">"{testimonial.quote}"</p>
                 <div className="flex items-center space-x-4">
                   <img 

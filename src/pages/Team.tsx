@@ -6,7 +6,7 @@ export default function Team() {
   const ceo = {
     name: "Liaquat Ali",
     role: "CEO (Chief Executive Officer)",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+    image: "https://laconsultingcorp.com/wp-content/uploads/2024/08/ceo.jpg",
     description: "From last 27 years we are providing our clients solutions through technology. We believe in results. The same client also needs results, so we always ensure to provide our clients with a result-oriented product so they can benefit from it and grow their businesses."
   };
 
@@ -14,7 +14,7 @@ export default function Team() {
     {
       name: "Humaid Ibrahim",
       role: "Data & AI Analyst",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+      image: "https://laconsultingcorp.com/wp-content/uploads/2024/08/Data.jpg",
       description: "Specializing in data analysis and artificial intelligence solutions."
     },
     {
